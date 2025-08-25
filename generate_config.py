@@ -26,14 +26,7 @@ def parse_slurm_nodes():
         yaml.dump(config, f)
 
     print("Accelerate config file 'multi_config.yaml' generated successfully.")
-    lines = []
-    for node in node_list.split():
-        lines.append(f"{node} slots={num_gpus_per_node}")
-
-    with open("hostfile", "w") as f:
-        f.write("\n".join(lines) + "\n")
-
-    print("deepspeed host file hostfile generated successfully.")
+   
 # Run the function
 if __name__ == "__main__":
     parse_slurm_nodes()
